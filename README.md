@@ -17,3 +17,7 @@ cordova requirements
 # test in iOS simulator (or using whatever device you may have)
 cordova run ios
 ```
+
+## Notes
+
+This demo has been tested on OSX, to build an iOS app. I can't guarantee it will work on another setup, feedback is welcome.
