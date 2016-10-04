@@ -8,11 +8,11 @@ This repository is an example of using the [vue-cordova](https://www.npmjs.com/p
 # install dependencies
 npm install
 
-# init Cordova plugins and environments
-cordova init
-
 # build static files
 npm run build
+
+# check for Cordova requirements
+cordova requirements
 
 # test in iOS simulator (or using whatever device you may have)
 cordova run ios
