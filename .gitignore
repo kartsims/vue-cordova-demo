@@ -2,7 +2,3 @@
 node_modules/
 npm-debug.log
 /www
-
-# cordova stuff
-/platforms
-/plugins
