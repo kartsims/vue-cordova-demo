@@ -58,5 +58,7 @@
     <string/>
     <key>NSLocationWhenInUseUsageDescription</key>
     <string/>
+    <key>NSContactsUsageDescription</key>
+    <string/>
   </dict>
 </plist>

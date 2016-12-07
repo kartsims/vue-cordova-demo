@@ -75,6 +75,14 @@ export default {
             timeout: 1000,
             enableHighAccuracy: true
           })
+        },
+        'cordova-plugin-contacts': function () {
+          const ContactFindOptions = ContactFindOptions || function () {}
+          Vue.cordova.contacts.find(['displayName'], (contacts) => {
+            window.alert('Contacts found : ' + contacts.length)
+          }, (error) => {
+            window.alert('FAILED : ' + error.code)
+          })
         }
       }
     }

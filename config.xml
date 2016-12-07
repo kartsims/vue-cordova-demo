@@ -30,4 +30,7 @@
         <variable name="PHOTOLIBRARY_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="~2.4.0" />
+    <plugin name="cordova-plugin-contacts" spec="~2.2.0">
+        <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
+    </plugin>
 </widget>
