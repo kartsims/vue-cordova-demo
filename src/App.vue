@@ -47,7 +47,8 @@ export default {
       cordova: Vue.cordova,
       plugins: [
         'cordova-plugin-camera',
-        'cordova-plugin-device'
+        'cordova-plugin-device',
+        'cordova-plugin-geolocation'
       ]
     }
   }
@@ -66,7 +67,7 @@ body {
 #app {
   color: #2c3e50;
   margin: 40px auto;
-  max-width: 600px;
+  max-width: 640px;
   font-family: Source Sans Pro, Helvetica, sans-serif;
   text-align: center;
 }
