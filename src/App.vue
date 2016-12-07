@@ -21,9 +21,12 @@
       <div :class="{ ok: cordova.deviceready }">
         <span></span>deviceready
       </div>
-      <div v-for="plugin in plugins" :class="{ ok: pluginEnabled(plugin) }">
+      <div v-for="(plugin, pluginTest) in plugins" :class="{ ok: pluginEnabled(plugin) }" @click="pluginTest">
         <span></span>{{ plugin }}
       </div>
+      <p>
+        Click a plugin name to run a simple test
+      </p>
     </div>
 
     <h2>`Vue.cordova`</h2>
@@ -45,11 +48,35 @@ export default {
   data: function () {
     return {
       cordova: Vue.cordova,
-      plugins: [
-        'cordova-plugin-camera',
-        'cordova-plugin-device',
-        'cordova-plugin-geolocation'
-      ]
+      plugins: {
+        'cordova-plugin-camera': function () {
+          Vue.cordova.camera.getPicture((imageURI) => {
+            window.alert('Photo URI : ' + imageURI)
+          }, (message) => {
+            window.alert('FAILED : ' + message)
+          }, {
+            quality: 50,
+            destinationType: Vue.cordova.camera.DestinationType.FILE_URI
+          })
+        },
+        'cordova-plugin-device': function () {
+          if (!Vue.cordova.device) {
+            window.alert('FAILED : device information not found')
+          } else {
+            window.alert('Device : ' + Vue.cordova.device.manufacturer + ' ' + Vue.cordova.device.platform + ' ' + Vue.cordova.device.version)
+          }
+        },
+        'cordova-plugin-geolocation': function () {
+          Vue.cordova.geolocation.getCurrentPosition((position) => {
+            window.alert('Current position : ' + position.coords.latitude + ',' + position.coords.longitude)
+          }, (error) => {
+            window.alert('FAILED Error #' + error.code + ' ' + error.message)
+          }, {
+            timeout: 1000,
+            enableHighAccuracy: true
+          })
+        }
+      }
     }
   }
 }
@@ -112,7 +139,7 @@ div.alert a {
 }
 
 div.indicators {
-  width: 250px;
+  width: 340px;
   margin: 0 auto 40px;
   text-align: left;
   font-family: Courier, Courier New, sans-serif;
@@ -123,6 +150,7 @@ div.indicators div {
 }
 div.indicators div.ok {
   opacity: 1;
+  cursor: pointer;
 }
 div.indicators div.ok span {
   background: #0c0;
@@ -136,5 +164,10 @@ div.indicators div span {
   position: relative;
   top: 3px;
   margin-right: 15px;
+}
+div.indicators p {
+  font-size: .8em;
+  font-weight: bold;
+  padding-bottom: 20px;
 }
 </style>
