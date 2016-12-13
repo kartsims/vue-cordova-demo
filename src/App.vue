@@ -21,7 +21,7 @@
       <div :class="{ ok: cordova.deviceready }">
         <span></span>deviceready
       </div>
-      <div v-for="(plugin, pluginTest) in plugins" :class="{ ok: pluginEnabled(plugin) }" @click="pluginTest">
+      <div v-for="(pluginTest, plugin) in plugins" :class="{ ok: pluginEnabled(plugin) }" @click="pluginTest">
         <span></span>{{ plugin }}
       </div>
       <p>
@@ -31,7 +31,7 @@
 
     <h2>`Vue.cordova`</h2>
 
-    <div class="dump" v-if="cordova">{{ cordova | json }}</div>
+    <div class="dump" v-if="cordova">{{ cordova }}</div>
 
   </div>
 </template>
@@ -50,6 +50,10 @@ export default {
       cordova: Vue.cordova,
       plugins: {
         'cordova-plugin-camera': function () {
+          if (!Vue.cordova.camera) {
+            window.alert('Vue.cordova.camera not found !')
+            return
+          }
           Vue.cordova.camera.getPicture((imageURI) => {
             window.alert('Photo URI : ' + imageURI)
           }, (message) => {
@@ -67,6 +71,10 @@ export default {
           }
         },
         'cordova-plugin-geolocation': function () {
+          if (!Vue.cordova.geolocation) {
+            window.alert('Vue.cordova.geolocation not found !')
+            return
+          }
           Vue.cordova.geolocation.getCurrentPosition((position) => {
             window.alert('Current position : ' + position.coords.latitude + ',' + position.coords.longitude)
           }, (error) => {
@@ -77,6 +85,10 @@ export default {
           })
         },
         'cordova-plugin-contacts': function () {
+          if (!Vue.cordova.contacts) {
+            window.alert('Vue.cordova.contacts not found !')
+            return
+          }
           const ContactFindOptions = ContactFindOptions || function () {}
           Vue.cordova.contacts.find(['displayName'], (contacts) => {
             window.alert('Contacts found : ' + contacts.length)

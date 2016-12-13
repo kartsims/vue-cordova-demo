@@ -14,12 +14,10 @@ if (window.location.protocol === 'file:') {
   document.body.appendChild(cordovaScript)
 }
 
-// Enable debugging to show plugin loading in the console output
-Vue.config.debug = true
-
 /* eslint-disable no-new */
 new Vue({
-  el: 'body',
+  el: '#app',
+  template: '<App/>',
   components: { App },
   data: function () {
     return {
