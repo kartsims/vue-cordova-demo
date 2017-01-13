@@ -13,6 +13,9 @@ npm install
 # build static files
 npm run build
 
+# set up Cordova platforms and plugins
+cordova requirements
+
 # check for Cordova requirements
 cordova requirements
 
