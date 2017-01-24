@@ -14,7 +14,7 @@ npm install
 npm run build
 
 # set up Cordova platforms and plugins
-cordova requirements
+cordova prepare
 
 # check for Cordova requirements
 cordova requirements
