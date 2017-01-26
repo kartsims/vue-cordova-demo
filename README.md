@@ -26,7 +26,7 @@ npm run browser
 
 > Testing in the browser only allows you to test a very few plugins as Cordova emulates poorly most plugins in the browsers. This can still be useful to tweak the demo app quickly (hot reloading, yay!), instead of building the script files each time you want to preview your changes.
 
-Thanks to [barryvdh](github.com/barryvdh) for implementing this feature.
+Thanks to [barryvdh](https://github.com/barryvdh) for implementing this feature.
 
 **Test in other platforms**
 
