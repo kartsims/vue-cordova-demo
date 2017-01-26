@@ -9,7 +9,11 @@ This repository is an example of using the [vue-cordova](https://www.npmjs.com/p
 ``` bash
 # install dependencies
 npm install
+```
 
+## Test in mobile emulator
+
+``` bash
 # build static files
 npm run build
 
@@ -21,6 +25,12 @@ cordova requirements
 
 # test in iOS simulator (or using whatever device you may have)
 cordova run ios
+```
+
+## Test in browser
+
+``` bash
+npm run browser
 ```
 
 ## Notes
