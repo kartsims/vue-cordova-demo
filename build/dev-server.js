@@ -59,25 +59,18 @@ app.use(staticPath, express.static('./static'))
 
 
 // serve Cordova javascript and plugins
-var cordovaPlatformPath = path.join(__dirname, '../platforms/browser/www');
-var pluginPath = path.posix.join(config.dev.assetsPublicPath, 'plugins')
-app.use(pluginPath, express.static(path.join(cordovaPlatformPath, 'plugins')))
-
+var cordovaPlatformPath = path.join(__dirname, '../platforms/browser/www')
+app.use('/plugins', express.static(path.join(cordovaPlatformPath, 'plugins')))
 app.get(
   [
-    path.posix.join(config.dev.assetsPublicPath, 'cordova.js'),
-    path.posix.join(config.dev.assetsPublicPath, 'cordova_plugins.js'),
+    '/cordova.js',
+    '/cordova_plugins.js',
   ],
-  function(req, res){
-    var reqPath = req.path;
-    if(reqPath.substr(-1) == '/') {
-      reqPath = reqPath.slice(0, -1);
-    }
-
+  function (req, res) {
     try {
-      res.sendFile(path.join(cordovaPlatformPath, reqPath));
+      res.sendFile(path.join(cordovaPlatformPath, req.path))
     } catch(err) {
-      console.log(err);
+      console.log(err)
     }
 })
 
