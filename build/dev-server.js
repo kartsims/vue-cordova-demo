@@ -57,6 +57,30 @@ app.use(hotMiddleware)
 var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
 app.use(staticPath, express.static('./static'))
 
+
+// serve Cordova javascript and plugins
+var cordovaPlatformPath = path.join(__dirname, '../platforms/browser/www');
+var pluginPath = path.posix.join(config.dev.assetsPublicPath, 'plugins')
+app.use(pluginPath, express.static(path.join(cordovaPlatformPath, 'plugins')))
+
+app.get(
+  [
+    path.posix.join(config.dev.assetsPublicPath, 'cordova.js'),
+    path.posix.join(config.dev.assetsPublicPath, 'cordova_plugins.js'),
+  ],
+  function(req, res){
+    var reqPath = req.path;
+    if(reqPath.substr(-1) == '/') {
+      reqPath = reqPath.slice(0, -1);
+    }
+
+    try {
+      res.sendFile(path.join(cordovaPlatformPath, reqPath));
+    } catch(err) {
+      console.log(err);
+    }
+})
+
 module.exports = app.listen(port, function (err) {
   if (err) {
     console.log(err)
