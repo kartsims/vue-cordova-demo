@@ -4,35 +4,40 @@ This repository is an example of using the [vue-cordova](https://www.npmjs.com/p
 
 **This example features VueJS 2.x. For 1.x versions, check the `vue1.x` branch of this repository.**
 
-## Install
+## How-to
+
+**Install NPM dependencies and build static files**
 
 ``` bash
-# install dependencies
 npm install
 ```
 
-## Test in mobile emulator
+**Test in iOS**
 
 ``` bash
-# build static files
-npm run build
-
-# set up Cordova platforms and plugins
-cordova prepare
-
-# check for Cordova requirements
-cordova requirements
-
-# test in iOS simulator (or using whatever device you may have)
-cordova run ios
+npm run ios
 ```
 
-## Test in browser
+**Test in browser**
 
 ``` bash
 npm run browser
 ```
 
-## Notes
+> Testing in the browser only allows you to test a very few plugins as Cordova emulates but can still be useful.
 
-This demo has been tested on OSX, to build an iOS app. I can't guarantee it will work on another setup, feedback is welcome.
+Thanks to @barryvdh for implementing this feature.
+
+**Test in other platforms**
+
+This demo *should* work on any platform.
+
+It has been tested on OSX only, to build an iOS app. Please let me know how it did for you on your setup.
+
+## Troubleshooting
+
+If you can't access the demo chances are you don't meet Cordova requirements, check them by typing :
+
+``` bash
+npm run check
+```

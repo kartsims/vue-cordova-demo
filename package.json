@@ -5,13 +5,16 @@
   "author": "Simon Tarchichi <kartsims@gmail.com>",
   "private": true,
   "scripts": {
+    "browser": "cordova prepare browser && PORT=3000 node build/dev-server.js",
+    "check": "cordova requirements",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "ios": "cordova run ios --target=\"iPhone-4s\"",
+    "ios": "cordova prepare ios && cordova run ios",
     "lint": "eslint --ext .js,.vue src",
-    "browser": "cordova prepare browser && PORT=3000 node build/dev-server.js"
+    "postinstall": "npm run build"
   },
   "dependencies": {
+    "cordova": "^6.5.0",
     "vue": "^2.1.0",
     "vue-cordova": "0.1.2"
   },
