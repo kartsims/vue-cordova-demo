@@ -23,6 +23,7 @@
       </div>
       <div v-for="(pluginTest, plugin) in plugins" :class="{ ok: pluginEnabled(plugin) }" @click="pluginTest">
         <span></span>{{ plugin }}
+        <pre v-if="pluginsData[plugin]">{{ pluginsData[plugin] }}</pre>
       </div>
       <p>
         Click a plugin name to run a simple test
@@ -95,7 +96,21 @@ export default {
           }, (error) => {
             window.alert('FAILED : ' + error.code)
           })
+        },
+        'cordova-plugin-dbmeter': function () {
+          if (!Vue.cordova.dbmeter) {
+            window.alert('Vue.cordova.dbmeter not found !')
+            return
+          }
+          Vue.cordova.dbmeter.start((db) => {
+            this.pluginsData['cordova-plugin-dbmeter'] = db + 'dB'
+          }, (error) => {
+            window.alert('FAILED : ' + error.code)
+          })
         }
+      },
+      pluginsData: {
+        'cordova-plugin-dbmeter': null
       }
     }
   }
@@ -189,5 +204,12 @@ div.indicators p {
   font-size: .8em;
   font-weight: bold;
   padding-bottom: 20px;
+}
+div.indicators pre {
+  font-weight: bold;
+  background: #eee;
+  border-radius: 3px;
+  margin: .5em 20px;
+  padding: .5em 15px;
 }
 </style>

@@ -9,7 +9,7 @@
     "check": "cordova requirements",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
-    "ios": "cordova prepare ios && cordova run ios",
+    "ios": "cordova prepare ios && cordova run ios --target=iPhone-4s",
     "lint": "eslint --ext .js,.vue src",
     "postinstall": "npm run build"
   },
@@ -17,7 +17,7 @@
     "cordova": "^6.5.0",
     "npm": "^3.0.0",
     "vue": "^2.1.0",
-    "vue-cordova": "0.1.2"
+    "vue-cordova": "0.2.0"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

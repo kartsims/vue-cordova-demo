@@ -33,5 +33,8 @@
     <plugin name="cordova-plugin-contacts" spec="~2.2.0">
         <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
     </plugin>
+    <plugin name="cordova-plugin-dbmeter" spec="~1.1.2" />
+    <!-- using legacy swift language because of dbmeter plugin -->
+    <preference name="UseLegacySwiftLanguageVersion" value="true" />
     <engine name="browser" spec="~4.1.0" />
 </widget>
