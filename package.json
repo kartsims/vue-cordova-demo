@@ -11,7 +11,7 @@
     "build": "node build/build.js",
     "ios": "cordova prepare ios && cordova run ios",
     "lint": "eslint --ext .js,.vue src",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build && cordova prepare"
   },
   "dependencies": {
     "cordova": "^6.5.0",
