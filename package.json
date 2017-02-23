@@ -5,7 +5,7 @@
   "author": "Simon Tarchichi <kartsims@gmail.com>",
   "private": true,
   "scripts": {
-    "browser": "cordova prepare browser && PORT=3000 node build/dev-server.js",
+    "browser": "cordova prepare browser && cross-env PORT=3000 node build/dev-server.js",
     "check": "cordova requirements",
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "cordova": "^6.5.0",
+    "cross-env": "^3.1.4",
     "npm": "^3.0.0",
     "vue": "^2.1.0",
     "vue-cordova": "0.1.2"
