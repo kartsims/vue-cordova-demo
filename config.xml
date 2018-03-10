@@ -34,4 +34,5 @@
         <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
     </plugin>
     <engine name="browser" spec="~4.1.0" />
+    <engine name="android" spec="~6.0.0" />
 </widget>

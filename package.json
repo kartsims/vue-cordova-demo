@@ -10,6 +10,7 @@
     "dev": "node build/dev-server.js",
     "build": "node build/build.js",
     "ios": "cordova prepare ios && cordova run ios",
+    "android": "cordova prepare android && cordova run android",
     "lint": "eslint --ext .js,.vue src",
     "postinstall": "npm run build && cordova prepare"
   },
