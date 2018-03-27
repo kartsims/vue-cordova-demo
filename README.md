@@ -17,6 +17,11 @@ npm install
 ``` bash
 npm run ios
 ```
+**Test in Android**
+
+``` bash
+npm run android
+```
 
 **Test in browser**
 
